@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- saved from url=(0436)https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/487023959572329.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2TAWW44RCEE6YREN%2F20211216%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20211216T132544Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27M2-D4.html&X-Amz-Signature=3aca75954d7521ed449fb286555a1a29547d9e0b291005d0a1f193bad026d5f7 -->
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./487023959572329_files/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <title>Create Your team</title>
+</head>
+
+<body>
+    <h1>Create your team</h1>
+    <section id="insertName">
+        <div class="form-group">
+            <label for="inputName">NAME</label>
+        <input type="text" name="inputName"/>
+        <button type="button" name="button" onclick="createWaiting()">
+            Submit
+        </button>
+        </div>
+    </section>
+        <br>
+
+        
+
+        <section id="waitingList">
+            <ul class="list-group" id="waitingUl">
+
+                <h3>Waiting list</h3>
+
+                <li id="listW"></li>
+                <br>
+            <button type="submit" for="waitingList" class="btn btn-primary">Assign to team</button>
+            
+        </section>
+
+        <br>
+        <section id="insertNumber">
+        <div class="form-group">
+            <label for="inputNumber">TEAM NUMBER</label>
+            <input type="number" class="form-control" name="inputNumber" placeholder="1..." required>
+            <button type="submit" for="insertNumber" class="btn btn-primary">submit</button>
+
+        </div>
+
+        <section id="teamLists">
+            <ul class="list-group" >
+
+                <h3>Team lists</h3>
+
+                <li id="teamList" class="list-group-item"></li>
+            </ul>            
+        </section>
+   
+    </section>
+
+
+    <script src="./487023959572329_files/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="./487023959572329_files/bootstrap.bundle.min.js"
+        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+        crossorigin="anonymous">
+    </script>
+
+<script>
+
+let k = " ";
+        function createWaiting() {
+            let input = document.getElementsByName("inputName");
+  
+            for (let i = 0; i < input.length; i++) {
+                let a = input[i];
+                k = a.value;
+            }
+
+            document.getElementById("listW").appendChild(document.createElement("li")).innerHTML = k;
+        }
+
+       
+</script>
+</body>
+
+</html>

@@ -20,7 +20,7 @@
         <div class="form-group">
             <label for="inputName">NAME</label>
         <input type="text" name="inputName"/>
-        <button type="button" name="button" onclick="createWaiting()">
+        <button type="button" for="inputName" name="button" onclick="createWaiting()">
             Submit
         </button>
         </div>
@@ -30,44 +30,30 @@
         
 
         <section id="waitingList">
-            <ul class="list-group" id="waitingUl">
+            <ul class="" id="waitingUl">
 
                 <h3>Waiting list</h3>
-
-                <li id="listW"></li>
-                <br>
-            <button type="submit" for="waitingList" class="btn btn-primary">Assign to team</button>
             
         </section>
 
+        <button type="submit" for="waitingList" class="btn btn-primary" onclick="assignTo()">Assign to team</button>
+
+
         <br>
+        
         <section id="insertNumber">
         <div class="form-group">
             <label for="inputNumber">TEAM NUMBER</label>
-            <input type="number" class="form-control" name="inputNumber" placeholder="1..." required>
-            <button type="submit" for="insertNumber" class="btn btn-primary">submit</button>
+            <input type="number" class="form-control" id="inputNumber" placeholder="1..." required>
+            <button type="submit" for="insertNumber" class="btn btn-primary" onclick="addTeam()">submit</button>
 
         </div>
+        </section>
 
         <section id="teamLists">
-            <ul class="list-group" >
-
-                <h3>Team lists</h3>
-
-                <li id="teamList" class="list-group-item"></li>
-            </ul>            
+               
         </section>
    
-    </section>
-
-
-    <script src="./487023959572329_files/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-    <script src="./487023959572329_files/bootstrap.bundle.min.js"
-        integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-        crossorigin="anonymous">
-    </script>
 
 <script>
 
@@ -78,11 +64,58 @@ let k = " ";
             for (let i = 0; i < input.length; i++) {
                 let a = input[i];
                 k = a.value;
-            }
 
-            document.getElementById("listW").appendChild(document.createElement("li")).innerHTML = k;
+            }
+            document.getElementById("waitingUl").appendChild(document.createElement("li")).innerText = k;
         }
 
+        
+        function numberT () {
+
+            let num = document.getElementById("inputNumber")
+            let totNum = num.value
+            return totNum
+
+        }
+
+        function addTeam() {
+
+let teamNumber = numberT()
+
+let teamList = document.getElementById("teamLists")
+for (i=0; i < teamNumber; i++){
+teamList.innerHTML += `
+              <div>
+                  <h4>Team </h4>
+                  <ul class="list-group">
+                  </ul>
+              </div> `
+            }
+            
+        }
+
+function assignTo() {
+    let uL = document.querySelectorAll(".list-group")
+    let name = document.querySelectorAll("#waitingUl li")
+    let list = document.createElement("li")
+    let num = document.getElementById("inputNumber")
+            let totNum = parseInt(numberT())
+    let casual = Math.floor(Math.random() * totNum)
+    let listName = Math.floor(Math.random()*name.length)
+    let a = name[listName] 
+  
+
+if ((uL[casual] === undefined) || (a === undefined))
+{alert ("VERIFY : INSERT A NEW NAME IN THE WAITING LIST OR INSERT A NEW TEAM TO PROCEED")
+}else {
+    list.innerText = name[listName].innerHTML
+ uL[casual].appendChild(list)
+ 
+}
+ name[listName].remove()
+ 
+}
+        
        
 </script>
 </body>
